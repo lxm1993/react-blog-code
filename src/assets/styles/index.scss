@@ -1,0 +1,134 @@
+@import '~antd/dist/antd.css';
+@import './antd.scss';
+
+$pageHeight: 100vh;
+$hoverColor: #f55873;
+
+
+
+html {
+    height: $pageHeight;
+}
+
+body {
+    height: $pageHeight;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #ebeef1;
+}
+
+.header-left {
+    font-weight: 800;
+
+    .header-title {
+        font-size: 20px;
+        font-style: italic;
+    }
+
+    .header-des {
+        margin-left: 10px;
+        color: #666;
+    }
+}
+
+.page-sider-wraper {
+    .autor-name {
+        margin-top: 5px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .autor-des {
+        margin-top: 5px;
+        font-size: 14px; 
+        font-style: italic; 
+    }
+    .author-site {
+        text-align: left;
+        margin-left: 30px;
+        .site-item {
+            margin-top: 3px;
+            cursor: pointer; 
+            text-decoration: underline;
+            &:hover {
+                color: $hoverColor;
+            }
+        }
+    }
+}
+
+.header-right {
+    font-weight: 800;
+
+    .header-menu {
+        display: inline-block;
+        padding: 0 40px;
+        font-size: 15px;
+
+        a {
+            color: #333;
+
+            &:hover {
+                color: $hoverColor;
+            }
+        }
+    }
+
+    .menu-active {
+        a {
+            color: $hoverColor;
+        }
+    }
+}
+
+.page-content {
+    padding: 20px 30px;
+    background: #fff;
+
+    .post-item-content {
+        .post-item-title {
+            color: #222;
+            font-weight: 500;
+
+            &:hover {
+                color: $hoverColor;
+            }
+        }
+    }
+
+    .post-item-des {
+        margin-top: 5px;
+        font-style: italic;
+        font-weight: 500;
+        color: #666;
+
+        .post-item-tag {
+            margin-left: 10px;
+            vertical-align: 2px;
+        }
+    }
+
+    .article-wraper {
+        .article-title {
+            font-size: 20px;
+        }
+
+        .article-time {
+            font-style: italic;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .article-content {
+            margin-top: 15px;
+        }
+    }
+
+    .article-comment {
+        color: $hoverColor;
+    }
+}

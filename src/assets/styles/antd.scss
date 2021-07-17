@@ -1,0 +1,44 @@
+$pageHeight: 100vh;
+
+.ant-result-404 {
+    padding-top: 150px;
+}
+
+.ant-layout {
+    height: $pageHeight;
+}
+
+.ant-layout-header {
+    position: relative;
+    z-index: 10;
+    max-width: 100%;
+    background: #fff;
+    box-shadow: 0 2px 8px #f0f1f2;
+}
+
+.ant-layout-sider {
+    min-width: 240px !important;
+    text-align: center;
+    padding-top: 30px;
+    box-shadow: 0 2px 10px #bbc4ce;
+    background: #fff;
+}
+
+.ant-divider-horizontal {
+    margin: 12px 0;
+}
+
+.ant-spin-spinning {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 300px;
+    margin-left: 240px;
+}
+.ant-spin-dot-item {
+    background-color:#f55873;
+}
+
+.ant-list-empty-text {
+    margin-top: 160px;
+}
