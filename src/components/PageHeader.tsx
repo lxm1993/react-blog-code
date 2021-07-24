@@ -12,12 +12,22 @@ interface Props {
 const PageHeader = (props: Props) => {
     const [hash, setHash] = useState('')
     useEffect(() => {
-        window.onhashchange = () => {
-            const hash = window.location.hash.split('/')[1];
-            setHash(hash);
-        }
+        hashChange();
+        window.onhashchange = () => { hashChange() }
 
     })
+
+    const hashChange = () => {
+        const hash = window.location.hash.split('/')[1];
+        if(hash === 'article'){
+            const pathParts = window.location.href.split("/");
+            const pathPartsLen = pathParts.length;
+            const repo = pathParts[pathPartsLen-2];
+            setHash(repo === 'gossip-blogs' ? 'gossip' : '');
+            return;
+        }
+        setHash(hash);
+    }
     return (
         < Header >
             <Row className="header-wraper">
