@@ -6,10 +6,12 @@ $pageHeight: 100vh;
 
 .ant-layout {
     height: $pageHeight;
+    min-width: 870px;
 }
 
 .ant-layout-header {
     position: relative;
+    padding: 0 30px;
     z-index: 10;
     max-width: 100%;
     background: #fff;
@@ -17,7 +19,7 @@ $pageHeight: 100vh;
 }
 
 .ant-layout-sider {
-    min-width: 240px !important;
+    min-width: 230px !important;
     text-align: center;
     padding-top: 30px;
     box-shadow: 0 2px 10px #bbc4ce;
@@ -40,5 +42,5 @@ $pageHeight: 100vh;
 }
 
 .ant-list-empty-text {
-    margin-top: 160px;
+    margin-top: 150px;
 }

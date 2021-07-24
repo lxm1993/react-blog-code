@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Layout, Divider } from 'antd';
+import { Divider } from 'antd';
+import TagList from '../../components/PostItem/TagList';
 import marked from "marked";
-import PageHeader from '../../components/PageHeader'
-import PageSider from '../../components/PageSider'
 import { config } from "../../config";
+import './index.scss';
 
-const { Content } = Layout;
-
-interface Props {
-}
+interface Props {}
 
 const Article = (props: Props) => {
     const path = window.location.href;
-    const id = path.split("/").pop();
+    const pathParts = path.split("/");
+    const pathPartsLen = pathParts.length;
+    const id = pathParts[pathPartsLen-1];
+    const repo = pathParts[pathPartsLen-2];
 
     const [articleContent, setArticleContent] = useState<any>({});
 
@@ -21,7 +21,7 @@ const Article = (props: Props) => {
     }, []);
 
     const fetchData = () => {
-        const url = `https://api.github.com/repos/${config.githubUserName}/${config.githubRepo}/issues/${id}`;
+        const url = `https://api.github.com/repos/${config.githubUserName}/${repo}/issues/${id}`;
         fetch(url)
             .then((resp) => resp.json())
             .then((issue) => {
@@ -58,23 +58,26 @@ const Article = (props: Props) => {
         return null;
     }
     return (
-        <Layout>
-            <PageHeader index={0} />
-            <Layout>
-                <PageSider />
-                <Content className="page-content">
-                    <article className="article-wraper">
-                        <h1 className="article-title">{articleContent.title}</h1>
-                        <div className="article-time">{articleContent.created_at && articleContent.created_at.substr(0, 10)}</div>
-                        <Divider />
-                        <div className="article-content" dangerouslySetInnerHTML={{ __html: articleContent.htmlContent }} />
-                    </article>
-                    <div className="article-comment" onClick={() => (window.location.href = articleContent.html_url)}>
-                        原文地址
-                    </div>
-                </Content>
-            </Layout>
-        </Layout>
+        <div>
+            <article className="article-wraper">
+                <h1 className="article-title">{articleContent.title}</h1>
+                <div className="article-time">
+                    {articleContent.created_at && articleContent.created_at.substr(0, 10)}
+                    <TagList labels={articleContent.labels} />
+                </div>
+                <Divider />
+                <div className="article-content" dangerouslySetInnerHTML={{ __html: articleContent.htmlContent }} />
+            </article>
+            <div className="article-comment"
+                style={{
+                    color: `#${articleContent.labels && articleContent.labels[0] && articleContent.labels[0].color}`,
+                }}
+                onClick={() => {
+                    window.open(articleContent.html_url)
+                }}>
+                原文地址
+            </div>
+        </div>
     )
 };
 

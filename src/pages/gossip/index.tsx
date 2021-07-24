@@ -2,13 +2,13 @@ import React from 'react';
 import ArtList from '../../components/ArtList';
 import { config } from "../../config";
 
-const Home = () => {
+const Gossip = () => {
     return (
         <div className="home-wraper">
-            <ArtList githubRepo={config.githubTechnologyRepo} />
+            <ArtList githubRepo={config.githubGossipRepo} />
         </div>
     )
 };
 
 
-export default Home;
+export default Gossip;

@@ -51,7 +51,7 @@ body {
         text-align: left;
         margin-left: 30px;
         .site-item {
-            margin-top: 3px;
+            margin-bottom: 5px;
             cursor: pointer; 
             text-decoration: underline;
             &:hover {
@@ -61,12 +61,12 @@ body {
     }
 }
 
-.header-right {
+.header-center {
     font-weight: 800;
 
     .header-menu {
         display: inline-block;
-        padding: 0 40px;
+        padding: 0 50px;
         font-size: 15px;
 
         a {
@@ -85,50 +85,11 @@ body {
     }
 }
 
+.header-right {
+    text-align: right;
+}
+
 .page-content {
     padding: 20px 30px;
     background: #fff;
-
-    .post-item-content {
-        .post-item-title {
-            color: #222;
-            font-weight: 500;
-
-            &:hover {
-                color: $hoverColor;
-            }
-        }
-    }
-
-    .post-item-des {
-        margin-top: 5px;
-        font-style: italic;
-        font-weight: 500;
-        color: #666;
-
-        .post-item-tag {
-            margin-left: 10px;
-            vertical-align: 2px;
-        }
-    }
-
-    .article-wraper {
-        .article-title {
-            font-size: 20px;
-        }
-
-        .article-time {
-            font-style: italic;
-            font-weight: 500;
-            color: #666;
-        }
-
-        .article-content {
-            margin-top: 15px;
-        }
-    }
-
-    .article-comment {
-        color: $hoverColor;
-    }
 }

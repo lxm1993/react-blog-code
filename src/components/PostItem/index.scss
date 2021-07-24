@@ -1,0 +1,25 @@
+$hoverColor: #f55873;
+
+.post-item-content {
+    .post-item-title {
+        color: #222;
+        font-weight: 500;
+
+        &:hover {
+            color: $hoverColor;
+        }
+    }
+}
+.post-item-des {
+    margin-top: 5px;
+    font-style: italic;
+    font-weight: 500;
+    color: #666;
+}
+.post-item-tag {
+    margin-left: 10px;
+    vertical-align: 2px;
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: 10px
+}
