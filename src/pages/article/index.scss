@@ -2,31 +2,32 @@ $hoverColor: #f55873;
 
 .article-wraper {
     .article-asider-wraper {
-        padding: 10px;
+        height: 100%;
+        padding: 20px 5px;
         border-right: 1px solid #eeeeee;
-
         h1 {
             font-size: 20px;
         }
-        .h1 {
-            font-weight: bold;
-        }
+
         a {
             display: block;
             margin-bottom: 8px;
             color: #333;
             font-size: 15px;
+
             &:hover {
-                // font-size: 16px;
-                text-decoration: underline;
                 color: $hoverColor;
             }
+        }
 
+        .h-active {
+            color: $hoverColor;
+            font-weight: bold;
         }
     }
 
     .article-content-wraper {
-        height: calc(100vh - 120px);
+        height: calc(100vh - 67px);
         overflow-y: scroll;
         padding: 0 20px 30px;
 
@@ -53,6 +54,7 @@ $hoverColor: #f55873;
                 overflow: auto;
                 position: relative;
                 line-height: 1.75;
+                // border-top: 6px solid $hoverColor;
             }
 
             pre>code {
@@ -64,42 +66,67 @@ $hoverColor: #f55873;
                 display: block;
                 overflow-x: auto;
                 color: #262626;
-                background: linear-gradient(180deg, #757b781a, transparent) !important;
+                background: linear-gradient(180deg, #949a971a, transparent) !important;
             }
 
             h1 {
                 font-size: 24px;
-            }
-            h2 {
-                font-size: 22px;
-            }
-            h3 {
-                font-size: 20px;
-            }
-            h4 {
-                font-size: 18px;
-            }
-            h6 {
-                font-size: 16px;
-            }
+                display: inline-block;
+                font-weight: 700;
+                // background: $hoverColor;
+                color: #fff;
+                padding: 6px 8px 0 0;
+                border-top-right-radius: 6px;
+                margin-right: 2px;
 
-            h1,
-            h2,
-            h3,
-            h4,
-            h5,
-            h6 {
-                margin: 35px 0 15px;
+                &::before {
+                    content: " ";
+                    display: inline-block;
+                    width: 8px;
+                }
+
+                &::after {
+                    content: " ";
+                    position: absolute;
+                    display: block;
+                    width: calc(100% - 40px);
+                    // border-bottom: 3px solid $hoverColor;
+                }
             }
         }
 
-        .article-comment {
-            cursor: pointer;
+        h2 {
+            font-size: 22px;
+        }
 
-            &:hover {
-                font-weight: 600;
-                color: $hoverColor;
-            }
+        h3 {
+            font-size: 20px;
+        }
+
+        h4 {
+            font-size: 18px;
+        }
+
+        h6 {
+            font-size: 16px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 35px 0 15px;
+        }
+    }
+
+    .article-comment {
+        cursor: pointer;
+
+        &:hover {
+            font-weight: 600;
+            color: $hoverColor;
         }
     }
 }

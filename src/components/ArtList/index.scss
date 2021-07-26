@@ -1,8 +1,9 @@
 
 .artlist-wraper {
+    padding-top: 20px;
     .catagory-title {
         font-weight: 700;
-        font-size: 18px;
+        font-size: 20px;
     }
     .catagory-description {
         margin-left: 10px;
@@ -13,5 +14,6 @@
     }
     .catagory-articles {
         margin-left: 15px;
+        margin-top: 20px;
     }
 }

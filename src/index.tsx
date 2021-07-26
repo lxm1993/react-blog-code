@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
 import reportWebVitals from './reportWebVitals';
@@ -13,5 +12,6 @@ ReactDOM.render(
   </ConfigProvider>,
   document.getElementById('root')
 );
+
 reportWebVitals();
 

@@ -4,7 +4,8 @@ $hoverColor: #f55873;
     .post-item-title {
         color: #222;
         font-weight: 500;
-
+        font-size: 15px;
+        
         &:hover {
             color: $hoverColor;
         }

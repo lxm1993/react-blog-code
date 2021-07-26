@@ -5,26 +5,34 @@ import TagList from '../../components/PostItem/TagList';
 import SiderBar from './SiderBar';
 import marked from "marked";
 import { config } from "../../config";
+import { hexToRgba } from "../../utils/util";
 import './index.scss';
 
 type Props = RouteComponentProps;
 
 const Article = (props: Props) => {
+
+    const [articleContent, setArticleContent] = useState<any>({});
+    const [curAnchorname, setCurAnchorname] = useState<string>('');
+
     const paths = window.location.href.split("?");
     const pathParts = paths[0].split("/");
     const pathPartsLen = pathParts.length;
     const id = pathParts[pathPartsLen - 1];
     const repo = pathParts[pathPartsLen - 2];
     const queryStr = paths[1];
-    let queryAnchorname = '';
-    if(queryStr){
-        queryAnchorname = decodeURIComponent(queryStr.split("=")[1]);
-    }
-
-    const [articleContent, setArticleContent] = useState<any>({});
 
     useEffect(() => {
+        const asider: any = document.getElementsByClassName('page-sider-wraper')[0];
+        if(asider){
+            asider.style.display="none";
+        }
         fetchData();
+        return ()=>{
+            if(asider){
+                asider.style.display="inherit";
+            }
+        }
     }, []);
 
     const fetchData = () => {
@@ -38,8 +46,8 @@ const Article = (props: Props) => {
                     htmlContent,
                     tables
                 })
-                if(queryAnchorname){
-                    scrollToAnchor(queryAnchorname)
+                if (queryStr) {
+                    scrollToAnchor(decodeURIComponent(queryStr.split("=")[1]))
                 }
             });
     }
@@ -50,10 +58,10 @@ const Article = (props: Props) => {
         }
         let htmlContent = marked(issue.body);
         // 更改pre border 的颜色
-        const borderColor = issue.labels && issue.labels[0] && issue.labels[0].color || '#2f845e';
-        htmlContent = htmlContent.replace(/<pre>/g, `<pre style="border-top: 6px solid #${borderColor};">`)
-        htmlContent = htmlContent.replace(/<h1/g, `<h1 style="border-bottom: 4px solid #${borderColor};" `)
-        // htmlContent = htmlContent.replace(/<strong>/g, `<strong style="color: #${borderColor};">`)
+        const borderColor = `#${issue.labels && issue.labels[0] && issue.labels[0].color || '2f845e'}`;
+        const rgbaColor = hexToRgba(borderColor, 0.5)
+        htmlContent = htmlContent.replace(/<pre>/g, `<pre style="border-top: 6px solid ${rgbaColor};">`)
+        htmlContent = htmlContent.replace(/<h1/g, `<h1 style="background: ${borderColor};" `)
         //匹配目录
         const toc = issue.body.match(/#{1,6}\s(.+)/g) || [];
         const tables = toc.map((item: any) => ({
@@ -66,12 +74,16 @@ const Article = (props: Props) => {
             const _toc = `<div id='${(tables[index] || {}).title}'>${item} </div>`;
             htmlContent = htmlContent.replace(item, _toc);
         });
+        setTimeout(() => {
+            document.styleSheets[0].insertRule(`.article-content h1::after { content: "red";border-bottom: 3px solid ${borderColor}; }`, 0);
+        })
         return { htmlContent, tables };
     }
 
     // 跳转到指定位置
     const scrollToAnchor = (anchorname: any) => {
         if (anchorname) {
+            setCurAnchorname(anchorname);
             props.history.replace(`${props.location.pathname}?anchorname=${anchorname}`);
             const anchorElement = document.getElementById(anchorname);
             if (anchorElement) {
@@ -86,9 +98,10 @@ const Article = (props: Props) => {
     return (
         <Row className="article-wraper">
             <Col span={5}>
-                <SiderBar 
-                changeRoute={scrollToAnchor} 
-                directorys={articleContent.tables || []} />
+                <SiderBar
+                    curAnchorname={curAnchorname}
+                    changeRoute={scrollToAnchor}
+                    directorys={articleContent.tables || []} />
             </Col>
             <Col span={19} className="article-content-wraper">
                 <article>

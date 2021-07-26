@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import { Result } from 'antd';
+import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
+import { Result } from 'antd';
 import { Layout } from 'antd';
 import PageHeader from './components/PageHeader'
 import PageSider from './components/PageSider'
@@ -26,14 +26,14 @@ export const routes: routeInterface[] = [
     path: "/", component: require('./pages/home/index').default,
   },
   {
-      name: '杂谈',
-      key: 'gossip',
-      path: "/gossip", component: require('./pages/gossip/index').default
+    name: '杂谈',
+    key: 'gossip',
+    path: "/gossip", component: require('./pages/gossip/index').default
   },
   {
-      name: '关于我',
-      key: 'me',
-      path: "/me", component: require('./pages/me/index').default
+    name: '关于我',
+    key: 'me',
+    path: "/me", component: require('./pages/me/index').default
   },
   {
     name: '文章详情',
@@ -43,24 +43,14 @@ export const routes: routeInterface[] = [
   }
 ]
 
+
 const App: React.FC = () => {
-  const [showSiderBar, setShowSiderBar] = useState(true)
-  useEffect(() => {
-      hashChange();
-      window.onhashchange = () => { hashChange() }
-
-  })
-
-  const hashChange = () => {
-      const hash = window.location.hash.split('/')[1];
-      setShowSiderBar(['article'].includes(hash) ? false : true);
-  }
   return (
     <HashRouter>
       <Layout>
         <PageHeader index={0} />
         <Layout>
-          {showSiderBar ?  <PageSider /> : null}
+          <PageSider />
           <Content className="page-content">
             <Switch>
               {routes.map((route, i) => (
@@ -79,6 +69,7 @@ const App: React.FC = () => {
 
   );
 };
+
 export default App;
 
 

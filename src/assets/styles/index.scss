@@ -48,10 +48,9 @@ body {
         font-style: italic; 
     }
     .author-site {
-        text-align: left;
-        margin-left: 30px;
+        text-align: center;
         .site-item {
-            margin-bottom: 5px;
+            margin-bottom: 6px;
             cursor: pointer; 
             text-decoration: underline;
             &:hover {
@@ -67,7 +66,7 @@ body {
     .header-menu {
         display: inline-block;
         padding: 0 50px;
-        font-size: 15px;
+        font-size: 16px;
 
         a {
             color: #333;
@@ -90,7 +89,7 @@ body {
 }
 
 .page-content {
-    padding: 20px 30px;
+    padding: 0 30px;
     background: #fff;
     height: calc(100vh - 66px);
     overflow-y: scroll;

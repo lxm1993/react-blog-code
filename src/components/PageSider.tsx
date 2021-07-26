@@ -12,7 +12,7 @@ const PageHeader = (props: Props) => {
     return (
         <Sider className="page-sider-wraper">
             <Avatar size={64} src={avatar} />
-            <div className="autor-name">刘晓敏</div>
+            <div className="autor-name">xiaomin</div>
             <p className="autor-des">美团外卖@前端开发工程师</p>
             <div className="author-site">
                 {

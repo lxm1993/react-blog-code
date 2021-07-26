@@ -2,6 +2,7 @@ import React from 'react';
 
 interface Props {
     changeRoute: Function;
+    curAnchorname: string;
     directorys: {
         level: number;
         title: string;
@@ -9,6 +10,7 @@ interface Props {
 }
 
 const PageHeader = (props: Props) => {
+    const { curAnchorname, changeRoute } = props;
     return (
         <aside className="article-asider-wraper">
             <h1>目录</h1>
@@ -16,9 +18,9 @@ const PageHeader = (props: Props) => {
                 <a
                     style={{ marginLeft: ((level - 1) * 5) }}
                     key={index}
-                    className={"h" + level}
+                    className={`h${level} ${title === curAnchorname ? 'h-active' : ''}`}
                     onClick={() => {
-                        props.changeRoute(title);
+                        changeRoute(title);
                     }}>
                     {title}
                 </a>
