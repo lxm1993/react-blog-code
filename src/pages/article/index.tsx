@@ -39,6 +39,10 @@ const Article = (props: Props) => {
             return { htmlContent: '', tables: [] };
         }
         let htmlContent = marked(issue.body);
+        // 更改pre border 的颜色
+        const borderColor = issue.labels && issue.labels[0] && issue.labels[0].color || '#2f845e';
+        htmlContent = htmlContent.replace(/<pre>/g, `<pre style="border-top: 6px solid #${borderColor};">`)
+        // htmlContent = htmlContent.replace(/<strong>/g, `<strong style="color: #${borderColor};">`)
         //匹配目录
         const toc = issue.body.match(/#{1,6}\s(.+)/g) || [];
         const tables = toc.map((item: any) => ({

@@ -22,9 +22,13 @@ const ArtList = (props: Props) => {
     }, []);
 
     const fetchData = async () => {
-        let articleMap: artListMap = await fetchPostList(props.githubRepo);
-        setLoading(false);
-        setArtListMap(articleMap);
+        try {
+            let articleMap: artListMap = await fetchPostList(props.githubRepo);
+            setLoading(false);
+            setArtListMap(articleMap);
+        } catch (error) {
+            setLoading(false);
+        }
     }
     return (
         <div className="artlist-wraper">
