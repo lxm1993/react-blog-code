@@ -1,54 +1,105 @@
 $hoverColor: #f55873;
 
 .article-wraper {
-    padding-right: 60px;
-    .article-title {
-        font-size: 20px;
-    }
+    .article-asider-wraper {
+        padding: 10px;
+        border-right: 1px solid #eeeeee;
 
-    .article-time {
-        font-style: italic;
-        font-weight: 500;
-        color: #666;
-    }
-
-    .article-content {
-        margin-top: 15px;
-
-        img {
+        h1 {
+            font-size: 20px;
+        }
+        .h1 {
+            font-weight: bold;
+        }
+        a {
             display: block;
-            max-width: 600px;
-            margin: 20px 0;
-        }
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 15px;
+            &:hover {
+                // font-size: 16px;
+                text-decoration: underline;
+                color: $hoverColor;
+            }
 
-        pre {
-            overflow: auto;
-            position: relative;
-            line-height: 1.75;
-        }
-
-        pre>code {
-            padding: 15px 12px;
-            margin: 0;
-            font-size: 12px;
-            font-weight: 600;
-            word-break: normal;
-            display: block;
-            overflow-x: auto;
-            color: #262626;
-            background: linear-gradient(180deg, #757b781a, transparent) !important;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            margin: 40px 0 10px;
         }
     }
-}
 
-.article-comment {
-    cursor: pointer;
+    .article-content-wraper {
+        height: calc(100vh - 120px);
+        overflow-y: scroll;
+        padding: 0 20px 30px;
 
-    &:hover {
-        font-weight: 600;
-        color: $hoverColor;
+        .article-title {
+            font-size: 20px;
+        }
+
+        .article-time {
+            font-style: italic;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .article-content {
+            margin-top: 15px;
+
+            img {
+                display: block;
+                max-width: 600px;
+                margin: 20px 0;
+            }
+
+            pre {
+                overflow: auto;
+                position: relative;
+                line-height: 1.75;
+            }
+
+            pre>code {
+                padding: 15px 12px;
+                margin: 0;
+                font-size: 12px;
+                font-weight: 600;
+                word-break: normal;
+                display: block;
+                overflow-x: auto;
+                color: #262626;
+                background: linear-gradient(180deg, #757b781a, transparent) !important;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+            h3 {
+                font-size: 20px;
+            }
+            h4 {
+                font-size: 18px;
+            }
+            h6 {
+                font-size: 16px;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                margin: 35px 0 15px;
+            }
+        }
+
+        .article-comment {
+            cursor: pointer;
+
+            &:hover {
+                font-weight: 600;
+                color: $hoverColor;
+            }
+        }
     }
 }
