@@ -48,7 +48,7 @@ const Article = (props: Props) => {
         //给html中的h加id
         let tocHtml = htmlContent.match(/<(h\d).*?>.*?<\/h\d>/g) || [];
         tocHtml.forEach((item: any, index: number) => {
-            const _toc = `<div id='${tables[index].title}'>${item} </div>`;
+            const _toc = `<div id='${(tables[index] || {}).title}'>${item} </div>`;
             htmlContent = htmlContent.replace(item, _toc);
         });
         return { htmlContent, tables };
