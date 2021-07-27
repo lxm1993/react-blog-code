@@ -5,7 +5,7 @@ import './index.scss';
 
 const Me = () => {
     return (
-        <div className="my-wraper">
+        <div className="page-wraper my-wraper">
             <div className="one-item">
                 <h1>关于我</h1>
                 <Divider />

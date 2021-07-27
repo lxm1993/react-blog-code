@@ -32,8 +32,7 @@ const PageHeader = (props: Props) => {
         < Header >
             <Row className="header-wraper">
                 <Col span={6} className="header-left">
-                    <span className="header-title">xiaomin‘s Blog</span>
-                    <span className="header-des">welcome!</span>
+                    <span className="header-title">xiaomin‘s Blog welcome!</span>
                 </Col>
                 <Col span={12} className="header-center">
                     {routes.map((item: any, i) => {

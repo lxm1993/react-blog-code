@@ -29,11 +29,6 @@ body {
         font-size: 20px;
         font-style: italic;
     }
-
-    .header-des {
-        margin-left: 10px;
-        color: #666;
-    }
 }
 
 .page-sider-wraper {
@@ -89,8 +84,9 @@ body {
 }
 
 .page-content {
-    padding: 0 30px;
     background: #fff;
-    height: calc(100vh - 66px);
     overflow-y: scroll;
+    .page-wraper {
+        padding: 0 30px;
+    }
 }

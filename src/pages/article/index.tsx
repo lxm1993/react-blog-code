@@ -96,7 +96,7 @@ const Article = (props: Props) => {
         return null;
     }
     return (
-        <Row className="article-wraper">
+        <Row className="page-wraper article-wraper">
             <Col span={5}>
                 <SiderBar
                     curAnchorname={curAnchorname}

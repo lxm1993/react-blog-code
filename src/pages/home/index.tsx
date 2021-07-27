@@ -4,7 +4,7 @@ import { config } from "../../config";
 
 const Home = () => {
     return (
-        <div className="home-wraper">
+        <div className="page-wraper home-wraper">
             <ArtList githubRepo={config.githubTechnologyRepo} />
         </div>
     )
