@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Divider, Timeline, Spin } from 'antd';
 import PostItem from '../PostItem/index'
 import { fetchPostList } from '../../utils/fetch';
+import { NotFond } from '../../App';
 import './index.scss';
 
 interface artListMap {
@@ -16,6 +17,7 @@ interface Props {
 const ArtList = (props: Props) => {
     const [artListMap, setArtListMap] = useState<artListMap>({});
     const [loading, setLoading] = useState<boolean>(true);
+    const [isError, setIsError] = useState<boolean>(false);
 
     useEffect(() => {
         fetchData();
@@ -28,10 +30,12 @@ const ArtList = (props: Props) => {
             setArtListMap(articleMap);
         } catch (error) {
             setLoading(false);
+            setIsError(true);
         }
     }
     return (
         <div className="artlist-wraper">
+            {isError ? <NotFond /> : null}
             {loading && <Spin />}
             {
                 Object.keys(artListMap).map((label: string) => {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
-import { Result } from 'antd';
-import { Layout } from 'antd';
+import { Layout, Result, List } from 'antd';
 import PageHeader from './components/PageHeader'
 import UserInfo from './components/UserInfo'
 const { Content, Sider } = Layout;
@@ -14,8 +13,24 @@ interface routeInterface {
   hidden?: boolean;
   routes?: routeInterface[];
 }
+
+const OtherInfos = [
+  {
+    label: "创建时间",
+    value: "20210729",
+  },
+  {
+    label: "多久更新",
+    value: "平均一两周吧",
+  },
+  {
+    label: "分享什么",
+    value: "技术、生活喽",
+  }
+]
+
 /** 404页面 */
-const NotFond = () => {
+export const NotFond = () => {
   return <Result status="404" title="404" subTitle="Sorry, the page you visited does not exist." />
 }
 
@@ -50,9 +65,6 @@ const App: React.FC = () => {
       <Layout>
         <PageHeader index={0} />
         <Layout>
-          <Sider className="page-sider-wraper">
-            <UserInfo />
-          </Sider>
           <Content className="page-content">
             <Switch>
               {routes.map((route, i) => (
@@ -65,6 +77,20 @@ const App: React.FC = () => {
               <Route component={NotFond} />
             </Switch>
           </Content>
+          <Sider className="page-sider-wraper">
+            <UserInfo />
+            <List
+              dataSource={OtherInfos}
+              renderItem={item => (
+                <List.Item>
+                  <p className="other-info-item">
+                    <span>{item.label}</span>
+                    <span>{item.value}</span>
+                  </p>
+                </List.Item>
+              )}
+            />
+          </Sider>
         </Layout>
       </Layout>
     </HashRouter>

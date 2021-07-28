@@ -97,12 +97,12 @@ const Article = (props: Props) => {
     }
     return (
         <Row className="article-wraper">
-            <Col span={18} className="article-content-wraper">
+            <Col flex="1" className="article-content-wraper">
                 <article>
                     <h1 className="article-title">{articleContent.title}</h1>
                     <div className="article-time">
-                        {articleContent.created_at && articleContent.created_at.substr(0, 10)}
                         <TagList labels={articleContent.labels} />
+                        {articleContent.created_at && articleContent.created_at.substr(0, 10)}
                     </div>
                     <Divider />
                     <div className="article-content" dangerouslySetInnerHTML={{ __html: articleContent.htmlContent }} />
@@ -117,7 +117,7 @@ const Article = (props: Props) => {
                     原文地址
                 </div>
             </Col>
-            <Col span={6} className="article-asider-wraper">
+            <Col flex="310px" className="article-asider-wraper">
                 <SiderBar
                     curAnchorname={curAnchorname}
                     changeRoute={scrollToAnchor}

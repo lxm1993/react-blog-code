@@ -18,16 +18,15 @@ $hoverColor: #f55873;
         color: #666;
     }
 
-    .post-item-tag {
-        margin-right: 10px;
-        vertical-align: 2px;
-        padding: 1px 4px;
-        border-radius: 2px;
-        font-size: 10px
-    }
-
     .post-item-body {
         margin-top: 5px;
         color: #5c6066;
     }
+}
+.post-item-tag {
+    margin-right: 10px;
+    vertical-align: 2px;
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: 10px
 }
