@@ -34,6 +34,7 @@ export const fetchPostList = (githubRepo: string): any => {
                     articleMap[tag].artList.unshift({
                         id: item.number,
                         title: item.title,
+                        body: item.body,
                         labels: item.labels,
                         url: item.html_url,
                         date: item.created_at.substring(0, 10),

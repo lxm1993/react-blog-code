@@ -8,12 +8,12 @@ const { Sider } = Layout;
 interface Props {
 }
 
-const PageHeader = (props: Props) => {
+const UserInfo = (props: Props) => {
     return (
-        <Sider className="page-sider-wraper">
+        <div className="page-user-info">
             <Avatar size={64} src={avatar} />
             <div className="autor-name">xiaomin</div>
-            <p className="autor-des">美团外卖@前端开发工程师</p>
+            <p className="autor-des">one@前端开发工程师</p>
             <div className="author-site">
                 {
                     config.thirdPartySites.map((item : any) => {
@@ -30,9 +30,9 @@ const PageHeader = (props: Props) => {
                     })
                 }
             </div>
-        </Sider >
+        </div >
     )
 };
 
 
-export default PageHeader;
+export default UserInfo;

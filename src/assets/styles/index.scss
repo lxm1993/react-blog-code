@@ -31,7 +31,11 @@ body {
     }
 }
 
-.page-sider-wraper {
+.page-user-info {
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    background: #fff;
+    text-align: center;
     .autor-name {
         margin-top: 5px;
         font-size: 16px;
@@ -43,7 +47,6 @@ body {
         font-style: italic; 
     }
     .author-site {
-        text-align: center;
         .site-item {
             margin-bottom: 6px;
             cursor: pointer; 
@@ -56,11 +59,12 @@ body {
 }
 
 .header-center {
+    padding: 0 30px;
     font-weight: 800;
 
     .header-menu {
         display: inline-block;
-        padding: 0 50px;
+        margin-right: 100px;
         font-size: 16px;
 
         a {
@@ -85,8 +89,9 @@ body {
 
 .page-content {
     background: #fff;
-    overflow-y: scroll;
     .page-wraper {
         padding: 0 30px;
+        height: calc(100vh - 95px);
+        overflow-y: scroll;
     }
 }

@@ -31,10 +31,10 @@ const PageHeader = (props: Props) => {
     return (
         < Header >
             <Row className="header-wraper">
-                <Col span={6} className="header-left">
-                    <span className="header-title">xiaomin‘s Blog welcome!</span>
+                <Col flex="260px" className="header-left">
+                    <span className="header-title">xiaomin‘s Blog</span>
                 </Col>
-                <Col span={12} className="header-center">
+                <Col flex={1} className="header-center">
                     {routes.map((item: any, i) => {
                         return !item.hidden
                             ? (
@@ -45,7 +45,7 @@ const PageHeader = (props: Props) => {
                             : null;
                     })}
                 </Col>
-                <Col span={6} className="header-right">
+                <Col flex="260px" className="header-right">
                     希望你的心里永远充满阳光～
                 </Col>
             </Row>

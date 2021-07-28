@@ -97,13 +97,7 @@ const Article = (props: Props) => {
     }
     return (
         <Row className="article-wraper">
-            <Col span={5}>
-                <SiderBar
-                    curAnchorname={curAnchorname}
-                    changeRoute={scrollToAnchor}
-                    directorys={articleContent.tables || []} />
-            </Col>
-            <Col span={19} className="article-content-wraper">
+            <Col span={18} className="article-content-wraper">
                 <article>
                     <h1 className="article-title">{articleContent.title}</h1>
                     <div className="article-time">
@@ -122,6 +116,12 @@ const Article = (props: Props) => {
                     }}>
                     原文地址
                 </div>
+            </Col>
+            <Col span={6} className="article-asider-wraper">
+                <SiderBar
+                    curAnchorname={curAnchorname}
+                    changeRoute={scrollToAnchor}
+                    directorys={articleContent.tables || []} />
             </Col>
         </Row>
         // <div>

@@ -3,8 +3,8 @@ import { HashRouter, Switch, Route } from 'react-router-dom';
 import { Result } from 'antd';
 import { Layout } from 'antd';
 import PageHeader from './components/PageHeader'
-import PageSider from './components/PageSider'
-const { Content } = Layout;
+import UserInfo from './components/UserInfo'
+const { Content, Sider } = Layout;
 
 interface routeInterface {
   name: string;
@@ -50,7 +50,9 @@ const App: React.FC = () => {
       <Layout>
         <PageHeader index={0} />
         <Layout>
-          <PageSider />
+          <Sider className="page-sider-wraper">
+            <UserInfo />
+          </Sider>
           <Content className="page-content">
             <Switch>
               {routes.map((route, i) => (

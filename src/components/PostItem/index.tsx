@@ -8,6 +8,7 @@ interface Props {
     postItem: {
         title: string;
         id: number;
+        body: string;
         date: string;
         labels: Label[];
     };
@@ -19,9 +20,10 @@ const PostItem = (props: Props) => {
         <div className="post-item-content">
             <Link className="post-item-title" to={`/article/${githubRepo}/${postItem.id}`}>{`${postItem.title}`}</Link>
             <div className="post-item-des">
-                <span className="post-time">{postItem.date}</span>
                 <TagList labels={postItem.labels}/>
+                <span className="post-time">{postItem.date}</span>
             </div>
+            <div className="post-item-body">{postItem.body.slice(0 ,100)}...</div>
         </div>
     )
 };
